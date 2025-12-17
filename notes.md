@@ -146,3 +146,15 @@ $env:GOOS="windows"; $env:GOARCH="amd64"; go build <filename.go>
 |pointer        | nil |
 |function       | nil |
 |struct         | struct instance |
+
+## Scope
+### Function Scope
+- CAN use ":="
+- CANNOT have unused variables
+
+### Package Scope
+- CANNOT use ":="
+- CAN have unused variables
+
+## iota
+Auto generated values for a `group` of constants
