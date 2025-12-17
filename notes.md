@@ -166,3 +166,8 @@ Auto generated values for a `group` of constants
 - for
 - switch case
 - function
+
+## Functions
+- Functions can return more than one result
+    - Named results
+    
