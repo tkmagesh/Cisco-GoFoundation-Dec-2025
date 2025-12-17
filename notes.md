@@ -175,3 +175,7 @@ Auto generated values for a `group` of constants
     - function defined in another function
     - Cannot have a name
     - Has to be immediately invoked (if not assigned to a variable)
+- Higher Order Functions (functions can be treated like data)
+    - Functions can be assigned as values to variables
+    - Functions can be passed as arguments to other functions
+    - Functions can be returned as return values from other functions
