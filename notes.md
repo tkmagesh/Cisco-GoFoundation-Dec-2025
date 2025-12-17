@@ -149,6 +149,7 @@ $env:GOOS="windows"; $env:GOARCH="amd64"; go build <filename.go>
 |struct         | struct instance |
 
 ## Scope
+### Block Scope
 ### Function Scope
 - CAN use ":="
 - CANNOT have unused variables
@@ -159,3 +160,9 @@ $env:GOOS="windows"; $env:GOARCH="amd64"; go build <filename.go>
 
 ## iota
 Auto generated values for a `group` of constants
+
+## constructs
+- if else
+- for
+- switch case
+- function
