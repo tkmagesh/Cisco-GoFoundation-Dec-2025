@@ -2,6 +2,11 @@ package main
 
 import "fmt"
 
+// cannot use ":="" in package scope
+// x := 100
+
+var unused_var_pkg bool = true
+
 func main() {
 
 	/*
@@ -108,4 +113,22 @@ func main() {
 	x, y, str := 100, 200, "Sum of %d and %d is %d\n"
 	result := x + y
 	fmt.Printf(str, x, y, result)
+
+	// complex types
+	var c1 complex128
+	c1 = 5 + 4i
+	fmt.Println("c1 = ", c1)
+	fmt.Println("real(c1) = ", real(c1))
+	fmt.Println("imag(c1) = ", imag(c1))
+
+	// complex type manipulation
+	c2 := 6 + 9i
+	c3 := c1 + c2
+	fmt.Println("c3 = ", c3)
+
+	/*
+		var unused_var_fn bool
+		unused_var_fn = true
+		fmt.Println(unused_var_fn)
+	*/
 }
