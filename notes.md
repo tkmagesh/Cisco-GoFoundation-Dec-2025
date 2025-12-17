@@ -70,3 +70,32 @@ go run <filename.go>
 # ex : go run 01-hello-world.go
 ```
 
+### Cross Compilation
+
+#### Environment variables for cross compilatio
+- GOOS
+- GOARCH
+
+#### To get the list of support platforms
+```shell
+go tool dist list
+```
+
+#### To get the environment variables used by the go tool
+```shell
+# list all 
+go env
+
+# get specific
+go env <var_1> <var_2> ...
+```
+
+#### To change the environment variable values
+```shell
+go env -w <var_1>=<new_value_1> <var_2>=<new_value_2> ...
+```
+
+#### To cross compile
+```shell
+GOOS=windows GOARCH=amd64 go build 01-hello-world.go
+```
