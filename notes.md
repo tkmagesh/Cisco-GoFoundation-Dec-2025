@@ -104,3 +104,6 @@ GOOS=windows GOARCH=amd64 go build 01-hello-world.go
 ```powershell
 $env:GOOS="windows"; $env:GOARCH="amd64"; go build <filename.go>
 ```
+
+## Standard Library documentation
+- https://pkg.go.dev/std
