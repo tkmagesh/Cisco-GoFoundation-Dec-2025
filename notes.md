@@ -95,7 +95,12 @@ go env <var_1> <var_2> ...
 go env -w <var_1>=<new_value_1> <var_2>=<new_value_2> ...
 ```
 
-#### To cross compile
+#### To cross compile (in mac & linux)
 ```shell
 GOOS=windows GOARCH=amd64 go build 01-hello-world.go
+```
+
+#### In windows (powershell)
+```powershell
+$env:GOOS="windows"; $env:GOARCH="amd64"; go build <filename.go>
 ```
