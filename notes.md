@@ -171,3 +171,7 @@ Auto generated values for a `group` of constants
 - Functions can return more than one result
     - Named results
 - Variadic functions
+- Anonymous functions
+    - function defined in another function
+    - Cannot have a name
+    - Has to be immediately invoked (if not assigned to a variable)
