@@ -170,4 +170,4 @@ Auto generated values for a `group` of constants
 ## Functions
 - Functions can return more than one result
     - Named results
-    
+- Variadic functions
