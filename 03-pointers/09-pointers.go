@@ -8,6 +8,7 @@ func main() {
 
 	// Value -> Address
 	// Address (pointer) of x
+
 	var xPtr *int
 	xPtr = &x
 	fmt.Println(xPtr)
