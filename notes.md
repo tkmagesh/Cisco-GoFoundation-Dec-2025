@@ -34,6 +34,7 @@
     - No pointer arithmatic
     - No exceptions (only errors)
     - No try..catch..finally construct
+    - No implicit type conversion
 - Performance
     - Equivalent to C++
     - Close to hardware
