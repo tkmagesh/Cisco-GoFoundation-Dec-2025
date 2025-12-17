@@ -54,3 +54,19 @@
     - Standard Library support
         - `sync` package
         - `sync/atomic` package
+
+## Compilation
+```shell
+go build <filename.go>
+# ex : go build 01-hello-world.go
+
+go build -o <binary_name> <filename.go>
+# ex : go build -o hw 01-hello-world.go
+```
+
+### Compilation & Execution
+```shell
+go run <filename.go>
+# ex : go run 01-hello-world.go
+```
+
