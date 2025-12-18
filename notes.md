@@ -193,6 +193,13 @@ Auto generated values for a `group` of constants
 - Typed collection of key/value pairs
 
 ## Error Handling
+- Errors are values returned from a function
+- By convention, errors should implement the "error" interface
+- Creating an error
+    - errors.New()
+    - fmt.Errorf()
+    - Custom type implementing the 'error' interface
+    
 ## Panic & Recovery
 ## Modules & Packages
 ## OOP
