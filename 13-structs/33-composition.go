@@ -26,20 +26,22 @@ func NewPerishableProduct(id int, name string, cost float64, expiry string) *Per
 
 func main() {
 
-	milk := PerishableProduct{
-		Expiry: "2 days",
-		Product: Product{
-			Id:   100,
-			Name: "Milk",
-			Cost: 50,
-		},
-	}
+	/*
+		milk := PerishableProduct{
+			Expiry: "2 days",
+			Product: Product{
+				Id:   100,
+				Name: "Milk",
+				Cost: 50,
+			},
+		}
 
-	// milk := NewPerishableProduct(100, "Milk", 50, "2 Days")
+		fmt.Println("Before applying discount :", Format(milk.Product))
+		ApplyDiscount(&(milk.Product), 10)
+		fmt.Println("After applying discount :", Format(milk.Product))
+	*/
 
-	// fmt.Println("Id :", milk.Product.Id)
-	fmt.Println("Id :", milk.Id)
-
+	milk := NewPerishableProduct(100, "Milk", 50, "2 Days")
 	fmt.Println("Before applying discount :", Format(milk.Product))
 	ApplyDiscount(&(milk.Product), 10)
 	fmt.Println("After applying discount :", Format(milk.Product))
