@@ -44,10 +44,16 @@ func main() {
 	fmt.Printf("noPtr[0] = %d\n", noPtr[0])
 
 	fmt.Printf("Before sorting, nos = %v\n", nos)
-	bubbleSort( /* ? */ )
+	bubbleSort(&nos)
 	fmt.Printf("After sorting, nos = %v\n", nos)
 }
 
-func bubbleSort( /* ? */ ) { // no return values
-	/* ? */
+func bubbleSort(list *[5]int) { // no return values
+	for i := 0; i < 4; i++ {
+		for j := i + 1; j < 5; j++ {
+			if list[i] > list[j] {
+				list[i], list[j] = list[j], list[i]
+			}
+		}
+	}
 }

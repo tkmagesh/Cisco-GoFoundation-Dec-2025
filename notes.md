@@ -182,8 +182,9 @@ Auto generated values for a `group` of constants
 
 ## Collections
 ### Arrays
-- Fixed sized typed collection
+- **Fixed** sized typed collection
 ### Slices
+- **Varying** sized typed collection
 ### Maps
 
 ## Error Handling
