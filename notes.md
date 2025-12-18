@@ -244,6 +244,41 @@ go build -o <binary_name> .
 - internal organization of code in a module
 - typically folders
 
+### Using 3rd party modules
+#### To add a 3rd party module
+```shell
+go get <module_name>
+```
+The module code is downloaded into the `GOPATH\pkg\mod` folder
+
+#### To updated the references
+```shell
+go mod tidy
+```
+
+#### To download the dependencies documented in the go.mod file
+```shell
+go mod download
+```
+
+#### To localize the dependency code in the application folder
+```shell
+go mod vendor
+```
+
+#### To get the dependency graph of a package
+```shell
+go mod why <module_name>
+```
+
+#### To get the dependency graph of all the all the dependencies
+```shell
+go mod graph
+```
+
+#### `go mod` command reference
+- https://go.dev/ref/mod 
+
 
 ## OOP
 ### Structs
