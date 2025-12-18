@@ -208,7 +208,43 @@ Auto generated values for a `group` of constants
 ### Recovery
 - Use `recover()` to get the error that resulted in the panic
 - Best used in deferred functions
+
+
 ## Modules & Packages
+### Module
+- Any code need to be versioned and deployed together
+- Typicall a folder with a `go.mod` file
+
+#### go.mod file
+- mainfest file for the module
+- contains
+    - name of the module
+        (advisable to include the repo path in the name of the module)
+    - go version targetted
+    - references to 3rd party modules used 
+- create
+```shell
+go mod init <module_name>
+```
+
+##### To execute a module
+```shell
+go run .
+```
+
+##### To build a module
+```shell
+go build .
+# OR
+go build -o <binary_name> .
+```
+
+
+### Package
+- internal organization of code in a module
+- typically folders
+
+
 ## OOP
 ### Structs
 ### Struct Composition
