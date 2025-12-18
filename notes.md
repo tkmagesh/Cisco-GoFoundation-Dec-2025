@@ -179,3 +179,19 @@ Auto generated values for a `group` of constants
     - Functions can be assigned as values to variables
     - Functions can be passed as arguments to other functions
     - Functions can be returned as return values from other functions
+
+## Collections
+### Arrays
+- Fixed sized typed collection
+### Slices
+### Maps
+
+## Error Handling
+## Panic & Recovery
+## Modules & Packages
+## OOP
+### Structs
+### Struct Composition
+### Methods
+### Type Assertion
+### Interfaces
