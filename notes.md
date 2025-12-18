@@ -188,6 +188,7 @@ Auto generated values for a `group` of constants
 - **Varying** sized typed collection
 - Maintains a pointer to an underlying array
 ![image](./images/slices.png)
+
 ### Maps
 
 ## Error Handling
