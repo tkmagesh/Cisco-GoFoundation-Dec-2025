@@ -201,6 +201,13 @@ Auto generated values for a `group` of constants
     - Custom type implementing the 'error' interface
     
 ## Panic & Recovery
+### Panic
+- **panic** represents the state of the application where the application execution is unable to proceed further
+- Use `panic()` to programmatically create and raise a panic
+
+### Recovery
+- Use `recover()` to get the error that resulted in the panic
+- Best used in deferred functions
 ## Modules & Packages
 ## OOP
 ### Structs
