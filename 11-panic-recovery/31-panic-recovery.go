@@ -12,8 +12,8 @@ func main() {
 	defer func() {
 		if err := recover(); err != nil {
 			// app panicked
-
-			fmt.Println("app panicked, error :", err)
+			e := fmt.Errorf("app shutdown, cause %w", err.(error))
+			fmt.Println("app panicked, error :", e)
 			fmt.Println("[graceful shutdown] closing resources")
 			os.Exit(22)
 		}
@@ -28,8 +28,10 @@ func main() {
 
 func divide(multiplier, divisor int) int {
 	defer fmt.Println("[divide] - deferred")
-	if divisor == 0 {
-		panic(ErrDivideByZero)
-	}
+	/*
+		if divisor == 0 {
+			panic(ErrDivideByZero)
+		}
+	*/
 	return multiplier / divisor
 }
