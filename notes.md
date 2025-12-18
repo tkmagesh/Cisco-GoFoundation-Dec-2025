@@ -190,6 +190,7 @@ Auto generated values for a `group` of constants
 ![image](./images/slices.png)
 
 ### Maps
+- Typed collection of key/value pairs
 
 ## Error Handling
 ## Panic & Recovery
