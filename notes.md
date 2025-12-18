@@ -284,5 +284,6 @@ go mod graph
 ### Structs
 ### Struct Composition
 ### Methods
+- functions with receivers
 ### Type Assertion
 ### Interfaces
