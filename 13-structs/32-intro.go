@@ -30,15 +30,15 @@ func main() {
 	pPtr = &p
 	fmt.Printf("Id : %d, Name : %q, Cost : %f\n", pPtr.Id, pPtr.Name, pPtr.Cost)
 
-	fmt.Println("Before applying discount, p :", Format( /* ? */ ))
-	ApplyDiscount( /* ?? */ ) // apply 10% discount
-	fmt.Println("After applying discount, p :", Format( /* ? */ ))
+	fmt.Println("Before applying discount, p :", Format(p))
+	ApplyDiscount(&p, 10)
+	fmt.Println("After applying discount, p :", Format(p))
 }
 
-func Format( /* product */ ) string {
-	return "Id : ?, Name : ?, Cost : ?"
+func Format(p Product) string {
+	return fmt.Sprintf("Id : %d, Name : %q, Cost : %0.2f", p.Id, p.Name, p.Cost)
 }
 
-func ApplyDiscount( /*  */ ) { // no return result
-	// update the given products Cost by applying the given discount
+func ApplyDiscount(pPtr *Product, discountPercentage float64) { // no return result
+	pPtr.Cost = pPtr.Cost * ((100 - discountPercentage) / 100)
 }
