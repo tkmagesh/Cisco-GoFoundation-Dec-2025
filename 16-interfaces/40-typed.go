@@ -22,31 +22,11 @@ func (r Rectange) Area() float64 {
 	return r.Height * r.Width
 }
 
-/*
-func PrintArea(x interface{}) {
-	switch val := x.(type) {
-	case Circle:
-		fmt.Println("Area :", val.Area())
-	case Rectange:
-		fmt.Println("Area :", val.Area())
-	default:
-		fmt.Println("Invalid type!")
-	}
+type AreaFinder interface {
+	Area() float64
 }
-*/
 
-/*
-func PrintArea(x interface{}) {
-	switch val := x.(type) {
-	case interface{ Area() float64 }:
-		fmt.Println("Area :", val.Area())
-	default:
-		fmt.Println("Invalid type!")
-	}
-}
-*/
-
-func PrintArea(x interface{ Area() float64 }) {
+func PrintArea(x AreaFinder) {
 	fmt.Println("Area :", x.Area())
 }
 
@@ -81,7 +61,11 @@ func (s Square) Perimeter() float64 {
 	return 4 * s.Side
 }
 
-func PrintPerimeter(x interface{ Perimeter() float64 }) {
+type PerimeterFinder interface {
+	Perimeter() float64
+}
+
+func PrintPerimeter(x PerimeterFinder) {
 	fmt.Println("Perimeter :", x.Perimeter())
 }
 
@@ -95,6 +79,27 @@ func PrintShapeStats(x interface {
 }
 */
 
+/*
+func PrintShapeStats(x interface {
+	AreaFinder      // for PrintArea()
+	PerimeterFinder // for PrintPerimeter()
+}) {
+	PrintArea(x)      // x should be interface{ Area() float64 }
+	PrintPerimeter(x) // x should be interface { Perimeter() float64 }
+}
+*/
+
+type ShapeStatsFinder interface {
+	AreaFinder      // for PrintArea()
+	PerimeterFinder // for PrintPerimeter()
+}
+
+func PrintShapeStats(x ShapeStatsFinder) {
+	PrintArea(x)      // x should be interface{ Area() float64 }
+	PrintPerimeter(x) // x should be interface { Perimeter() float64 }
+}
+
+/*
 func PrintShapeStats(x interface {
 	Area() float64      // for PrintArea()
 	Perimeter() float64 // for PrintPerimeter()
@@ -102,6 +107,7 @@ func PrintShapeStats(x interface {
 	PrintArea(x)      // x should be interface{ Area() float64 }
 	PrintPerimeter(x) // x should be interface { Perimeter() float64 }
 }
+*/
 
 func main() {
 	c := Circle{Radius: 12}
