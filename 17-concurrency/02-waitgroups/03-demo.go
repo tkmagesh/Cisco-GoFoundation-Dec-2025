@@ -9,8 +9,11 @@ import (
 func main() {
 	wg := &sync.WaitGroup{}
 
-	wg.Add(1) // increment the counter by 1
-	go f1(wg) // schedule the execution of f1() through the scheduler to be executed in FUTURE
+	for range 10 {
+		wg.Add(1) // increment the counter by 1
+		go f1(wg) // schedule the execution of f1() through the scheduler to be executed in FUTURE
+	}
+
 	f2()
 
 	// block the execution of main() until the wg counter becomes 0 (default = 0)
