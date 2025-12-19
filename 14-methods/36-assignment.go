@@ -9,7 +9,10 @@ Organize your code into modules & packages
 
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
 
 type Product struct {
 	Id   int
@@ -25,12 +28,96 @@ func (pPtr *Product) ApplyDiscount(discountPercentage float64) { // no return re
 	pPtr.Cost = pPtr.Cost * ((100 - discountPercentage) / 100)
 }
 
+func NewProduct(id int, name string, cost float64) *Product {
+	return &Product{
+		Id:   id,
+		Name: name,
+		Cost: cost,
+	}
+}
+
+type LineItem struct {
+	Item  *Product
+	Units float64
+}
+
+func (li *LineItem) ItemValue() float64 {
+	return li.Units * li.Item.Cost
+}
+
+func (li LineItem) Format() string {
+	return fmt.Sprintf("%s, Units : %0.2f", li.Item.Format(), li.Units)
+}
+
+func NewLineItem(product *Product, units float64) *LineItem {
+	return &LineItem{
+		Item:  product,
+		Units: units,
+	}
+}
+
+type ShoppingCart struct {
+	LineItems []*LineItem
+	Discount  float64
+}
+
+func (cart *ShoppingCart) AddItem(p *Product, units float64) {
+	li := NewLineItem(p, units)
+	cart.LineItems = append(cart.LineItems, li)
+}
+
+func (cart ShoppingCart) CartValue() float64 {
+	var total float64
+	for _, li := range cart.LineItems {
+		total += li.ItemValue()
+	}
+	// apply the discount
+	total = total * ((100 - cart.Discount) / 100)
+	return total
+}
+
+func (cart ShoppingCart) Format() string {
+	var sb strings.Builder
+	sb.WriteString("My Shopping Cart\n")
+	sb.WriteString("================================================\n")
+	for _, li := range cart.LineItems {
+		sb.WriteString(li.Format())
+		sb.WriteString("\n")
+	}
+	sb.WriteString(fmt.Sprintf("Discount : %0.2f\n", cart.Discount))
+	sb.WriteString(fmt.Sprintf("Total : %0.2f\n", cart.CartValue()))
+	return sb.String()
+}
+
+func (cart *ShoppingCart) ApplyDiscount(discountPercentage float64) {
+	cart.Discount = discountPercentage
+}
+
+func NewShoppingCart() *ShoppingCart {
+	// return &ShoppingCart{}
+	return new(ShoppingCart)
+}
+
 /*
 Shopping Cart implementation
 */
 func main() {
+	// create a few products
+	pen := NewProduct(100, "Pen", 10)
+	pencil := NewProduct(101, "Pencil", 5)
+	marker := NewProduct(102, "Marker", 50)
+
 	// create an instance of the cart
+	cart := NewShoppingCart()
+
 	// add products and number of units
+	cart.AddItem(pen, 10)
+	cart.AddItem(pencil, 20)
+	cart.AddItem(marker, 5)
+
 	// apply a discount to the whole cart
+	cart.ApplyDiscount(5)
+
 	// Print the cart items & cart value
+	fmt.Println(cart.Format())
 }
