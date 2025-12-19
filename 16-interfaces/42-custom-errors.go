@@ -8,11 +8,26 @@ Create a custom error type (replacing ErrDivideByZero) that has the following in
 package main
 
 import (
-	"errors"
 	"fmt"
 )
 
-var ErrDivideByZero error = errors.New("divide by zero error")
+// var ErrDivideByZero error = errors.New("divide by zero error")
+type ErrDivideByZero struct {
+	Multiplier int
+	Divisor    int
+}
+
+func NewErrDivideByZero(multiplier, divisor int) *ErrDivideByZero {
+	return &ErrDivideByZero{
+		Multiplier: multiplier,
+		Divisor:    divisor,
+	}
+}
+
+// `error` interface implementation
+func (e ErrDivideByZero) Error() string {
+	return fmt.Sprintf("divide by zero error, multiplier = %d and divisor = %d", e.Multiplier, e.Divisor)
+}
 
 func main() {
 	// divisor := 7
@@ -20,16 +35,14 @@ func main() {
 	q, err := divide(100, divisor)
 	if err == nil {
 		fmt.Printf("Q : %d\n", q)
-	} else if err == ErrDivideByZero {
-		fmt.Println("Do not attempt to divide by zero")
 	} else {
-		fmt.Println("unknown error :", err)
+		fmt.Println(err)
 	}
 }
 
 func divide(multiplier, divisor int) (quotient int, err error) {
 	if divisor == 0 {
-		err = ErrDivideByZero
+		err = NewErrDivideByZero(multiplier, divisor)
 		return
 	}
 	quotient = multiplier / divisor
