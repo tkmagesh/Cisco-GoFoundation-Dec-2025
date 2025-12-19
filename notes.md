@@ -287,3 +287,14 @@ go mod graph
 - functions with receivers
 ### Type Assertion
 ### Interfaces
+
+## Concurrency
+### Concurrent Design
+- The application is designed in such a way that it has more than one execution path
+- Concurrent execution of independent execution paths were typically achieved with the help of OS Threads
+
+- OS Threads are very costly (~2MB)
+
+### sync.WaitGroup
+- Semaphore based counter
+- Has the ability to block the execution of a function until the counter becomes 0

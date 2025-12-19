@@ -36,7 +36,10 @@ func main() {
 	if err == nil {
 		fmt.Printf("Q : %d\n", q)
 	} else {
-		fmt.Println(err)
+		switch e := err.(type) {
+		case *ErrDivideByZero:
+			fmt.Println("Error occurred", e.Multiplier, e.Divisor)
+		}
 	}
 }
 
