@@ -5,6 +5,7 @@ import (
 )
 
 func main() {
+
 	// var x interface{}
 	var x any
 
