@@ -98,22 +98,25 @@ func NewShoppingCart() *ShoppingCart {
 	return new(ShoppingCart)
 }
 
+// in-memory product repo
+var products map[string]*Product = map[string]*Product{
+	"pen":    NewProduct(100, "Pen", 10),
+	"pencil": NewProduct(101, "Pencil", 5),
+	"marker": NewProduct(102, "Marker", 50),
+}
+
 /*
 Shopping Cart implementation
 */
 func main() {
-	// create a few products
-	pen := NewProduct(100, "Pen", 10)
-	pencil := NewProduct(101, "Pencil", 5)
-	marker := NewProduct(102, "Marker", 50)
 
 	// create an instance of the cart
 	cart := NewShoppingCart()
 
 	// add products and number of units
-	cart.AddItem(pen, 10)
-	cart.AddItem(pencil, 20)
-	cart.AddItem(marker, 5)
+	cart.AddItem(products["pen"], 10)
+	cart.AddItem(products["pencil"], 20)
+	cart.AddItem(products["marker"], 5)
 
 	// apply a discount to the whole cart
 	cart.ApplyDiscount(5)
