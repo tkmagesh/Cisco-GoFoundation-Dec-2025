@@ -298,3 +298,12 @@ go mod graph
 ### sync.WaitGroup
 - Semaphore based counter
 - Has the ability to block the execution of a function until the counter becomes 0
+
+### Data Race
+```shell
+go run --race <filename.go>
+
+go build --race <filename.go>
+
+go test --race ./...
+```
