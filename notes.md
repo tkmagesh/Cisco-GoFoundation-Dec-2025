@@ -307,3 +307,34 @@ go build --race <filename.go>
 
 go test --race ./...
 ```
+
+### Share memory by communicating (Channels)
+#### Declaration
+```go
+var ch chan int
+```
+
+#### Initialization
+```go
+ch = make(chan int)
+```
+
+#### Declaration & Initialization
+```go
+var ch chan int = make(chan int)
+// OR
+var ch = make(chan int)
+// OR
+ch := make(chan int)
+```
+
+#### Send Operation
+```go
+ch <- 100
+```
+
+#### Receive Operation
+```go
+data := <- ch
+```
+
